@@ -21,9 +21,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-main{
-  background: linear-gradient(#e66465, #9198e5);
+#app{
 }
+
 .progress {
 
   margin: 0px;
