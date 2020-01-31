@@ -3,7 +3,7 @@
 	<h1>Test your reaction time!</h1>
 		<p>Click on the boxes and circles as quickly as you can. Your reaction time will be posted below: </p>
 	
-		<p id="printReactionTime"></p>
+		<p id="printReactionTime"></p<>
 	
 		<div id="box" @click="clicked"></div>
 		</div>
@@ -24,7 +24,7 @@ export default {
       number: null,
       score: 0,
       clickedTime: 0,
-      createdTime: null,
+      createdTime: 0,
       reactionTime: 0,
       showNumber: false,
       minRange: '99',
@@ -46,7 +46,7 @@ export default {
 					var time=Math.random();
 					time=time*3000;
 				
-				setTimeout(function() {
+				setTimeout(() => {
 				
 					if (Math.random()>0.5) {
 					
@@ -68,7 +68,7 @@ export default {
 					document.getElementById("box").style.display="block";
 					
         
-          this.createdTime = Date.now();
+          this.createdTime = new Date();
           console.log("justCreated");
           console.log(this.createdTime);
 					
@@ -92,12 +92,11 @@ export default {
       
 			clicked(){
 				console.log("Clicked");
-				this.clickedTime = Date.now();
+				this.clickedTime = new Date();
         
 				console.log("clickedtime" + this.clickedTime);
         console.log(this.createdTime);
-        Date.
-				this.reactionTime = Math.floor((this.createdTime - this.clickedTime)/1000) ;
+				this.reactionTime = Math.abs( (this.createdTime.getTime() - this.clickedTime.getTime())/1000);
         console.log("react"+this.reactionTime);
         
 				document.getElementById("printReactionTime").innerHTML="Your Reaction Time is: " + this.reactionTime + "seconds";
