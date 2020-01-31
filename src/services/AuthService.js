@@ -1,12 +1,4 @@
-/*
- * File: AuthService.js                                                        *
- * Project: alarmclock                                                         *
- * File Created: Monday,1st June 2019 01:47:39 pm                              *
- * Author: Le Phoque Pirate                                                    *
- * --------------------                                                        *
- * Last Modified: Monday, 1st July 2019 1:50:29 pm                             *
- * Modified By: Le Phoque Pirate (tcousin@intechinfo.fr)                       *
- */
+
 
 const host = process.env.VUE_APP_BACKEND;
 

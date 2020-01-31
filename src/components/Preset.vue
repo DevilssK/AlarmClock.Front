@@ -1,36 +1,26 @@
-/*
- * File: Preset.vue                                                            *
- * Project: alarmclock                                                         *
- * File Created: Tuesday,2nd June 2019 12:49:47 pm                             *
- * Author: Le Phoque Pirate                                                    *
- * --------------------                                                        *
- * Last Modified: Tuesday, 11th June 2019 4:00:57 pm                           *
- * Modified By: Le Phoque Pirate (tcousin@intechinfo.fr)                       *
- */
-
 <template>
-  <div class="clock_preset" @click="$router.push('/EditPreset/'+$route.params.id+'/'+index)">
-    <div class="title">{{preset.presetName}}</div>
+  <div class="clock_preset">
+    <div class="title">{{preset.Game}}</div>
     <div class="time-container">
       <div
         class="time"
-        v-for="(wakingTime, index) in getTime(preset.wakingTime)"
-        :key="wakingTime + index"
-      >{{wakingTime}}</div>
+        v-for="(AlarmTime, index) in getTime(preset.AlarmTime)"
+        :key="AlarmTime + index"
+      >{{AlarmTime}}</div>
     </div>
     <div class="days-container">
-      <div
+      <div 
         class="day"
-        v-for="(day, index) in days"
+        v-for="(day, index) in days()"
         :key="day.key"
-        :class="{ active: isDayActive(clock, index)}"
+        :class="{ active: isDayActive1(index+1)}"
       >{{formatDay(day)[0]}}</div>
     </div>
   </div>
 </template>
 
 <script>
-import daysEnum from "@/api/days";
+import days from "@/api/days";
 import { formatActivationFlag } from "@/api/formatActivationFlag";
 import { getPresetList } from "../api/clockApi";
 
@@ -44,16 +34,18 @@ export default {
   },
   data() {
     return {
-      days: formatActivationFlag(this.preset.activationFlag)
+       ActiveDays : formatActivationFlag(this.preset.activationFlag)
     };
   },
   mounted() {
     console.log(formatActivationFlag(this.preset.activationFlag));
   },
   methods: {
+
     days() {
-      return this.days;
+    return days;
     },
+    
     getTime(time) {
       return time.split("");
     },
@@ -62,22 +54,28 @@ export default {
     },
     isDayActive(clock, index) {
       return clock.days.find(e => e === index + 1);
+    },
+        isDayActive1(index){
+       return this.ActiveDays[index];
     }
+
   }
 };
 </script>
 <style lang="scss" scoped>
 .clock_preset {
-  min-height: 256px;
-  height: 256px;
-  min-width: 256px;
-  max-width: 512px;
+  min-height: 200px;
+  max-height: 220px;
+  max-width: 350px;
+  min-width: 100px;
   flex-grow: 1;
   margin-left: 1%;
   margin-right: 1%;
+  margin-top: 1%;
 
   background: rgb(1, 1, 133);
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
@@ -88,21 +86,24 @@ export default {
   &:hover {
     cursor: pointer;
     background: rgba(0, 0, 177, 0.644);
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
   .title {
     height: 30%;
+    margin-top: 3%;
     color: white;
     font-size: 50px;
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+font-family: 'Source Sans Pro', sans-serif;
+
   }
   .time-container {
-    height: 60%;
+    height: 50%;
+    width: 80%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
+  
 
     .time {
       display: flex;

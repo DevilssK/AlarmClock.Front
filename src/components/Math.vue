@@ -70,7 +70,7 @@ export default {
       this.GameIsOn = true;
 
       this.app = new PIXI.Application({
-        width: 600,
+        width: 1024,
         height: 600, 
         backgroundColor: 0x4400c3, 
         resolution: window.devicePixelRatio || 1,

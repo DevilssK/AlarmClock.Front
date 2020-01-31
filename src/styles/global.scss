@@ -1,14 +1,25 @@
 @import "./config.scss";
-
 /* -------- Forms -------- */
+html{
+
+}
 body{
   margin: 0;
-  background: linear-gradient(#e66465, #9198e5);
+  background-image: url("../public/Elegant_Background.jpg");
+  width: 100%;
+  height: 100%;
 
+  
 }
 .required:after {
     content: " *";
     font-weight: bold;
     font-size: 18px;
     color: red;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }

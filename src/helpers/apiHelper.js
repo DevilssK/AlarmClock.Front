@@ -1,12 +1,3 @@
-/*
- * File: apiHelper.js                                                          *
- * Project: alarmclock                                                         *
- * File Created: Tuesday,2nd June 2019 02:22:06 pm                             *
- * Author: Le Phoque Pirate                                                    *
- * --------------------                                                        *
- * Last Modified: Thursday, 6th June 2019 9:47:47 am                           *
- * Modified By: Le Phoque Pirate (tcousin@intechinfo.fr)                       *
- */
 
 async function checkErrors(resp) {
     if (resp.ok) return resp;

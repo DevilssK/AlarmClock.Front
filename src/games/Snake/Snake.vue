@@ -31,6 +31,10 @@ export default {
       textures
     };
   },
+  mounted(){
+    console.log("totototo");
+
+  },
   methods: {
     End: function() {},
 
