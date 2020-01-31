@@ -135,7 +135,10 @@ export default {
   methods: {
 
     onWinGame () {
-      this.$router.push("/")
+      this.$router.push("/home");
+      this.gamseIsSelected = false;
+      console.log("win");
+      this.$forceUpdate();
   },
 
     MainMenu() {

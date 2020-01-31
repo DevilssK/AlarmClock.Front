@@ -14,6 +14,7 @@ import Reflex from "./games/Reflex.vue";
 
 const routes = [
     { path: "", component: Home },
+    { path: "/home", component: Home },
     { path: "/MainMenu", component: MainMenu },
     { path: "/Reflex", component: Reflex },
     { path: "/Snake/:Time/:id", component: Snake },
